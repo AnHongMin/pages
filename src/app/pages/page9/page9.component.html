@@ -1,0 +1,11 @@
+http://www.notforme.kr/archives/1727<br/><br/>
+ 
+ <h4>프로퍼티 바인딩</h4>
+
+프로퍼티 바인딩은 Component의 상태 값을 DOM에 프로퍼티에 직접 반영하는데 쓰입니다. <br/>
+문법은 해당 DOM의 프로퍼티를 대괄호([])로 감싸고 우측에 바인딩할 대상을 넣어주면 됩니다.<br/>
+예를 들어, HTML의 input 태그는 메모리 상에 HTMLInputElement로 DOM에 반영되는데요.<br/>
+input 태그의 프로퍼티 중 하나인 disabled에 다음과 같은 방식으로 <br/>
+직접 Component의 상태를 반영하거나, 간단한 expression을 사용할 수 있습니다.<br/><br/>
+<input type="text" [disabled]="isDisabled"/>
+<input type="text" [disabled]="myNumber === 0" />

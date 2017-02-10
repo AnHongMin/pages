@@ -1,0 +1,11 @@
+http://www.notforme.kr/archives/1727
+<h4>Event Biding Sample</h4>
+<div>
+    <button type="button" (click)="clickedButton($event)">Click Me</button>
+    <div class="box" (mousemove)="printMousePosition($event)">Hover Me</div>
+    <div class="scrollable">
+    <ul>
+        <li *ngFor="let pos of positions">{{pos}}</li>
+    </ul>
+    </div>
+</div>

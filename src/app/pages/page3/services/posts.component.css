@@ -1,0 +1,20 @@
+.box {
+	border: 1px solid black;
+	margin: 10px;
+	padding: 0px 15px 15px 15px;
+}
+
+.post-list {
+	border: 1px solid black;
+	overflow-y:scroll;
+	margin: 10px;
+	list-style: none;
+	height:200px;
+}
+
+.post-list li {
+	position: relative;
+	font-size: 15px;
+	box-shadow: 0 -1px 0 #ededed;
+	overflow: hidden;
+}

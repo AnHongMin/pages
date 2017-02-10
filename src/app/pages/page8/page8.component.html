@@ -1,0 +1,12 @@
+ http://www.notforme.kr/archives/1727
+ 
+ <h4>양방향 바인딩</h4>
+ 양방향 바인딩은 프로퍼티 바인딩과 이벤트 바인딩을 동시에 적용하는 방법입니다. <br/>
+ 문법은 [(ngModel)]= “바인딩할 대상” 으로 해당 요소의 속성으로 넣어주면 됩니다.  <br/>
+ input, select 박스 등에 사용하면 바인딩한 Component에 상태가 화면의 View에도 반영이 되고,  <br/>
+ 반대로 사용자가 View에서 입력할 때 Component의 상태에도 자동으로 데이터가 반영이 됩니다.  <br/>
+  <div>
+    ngModel로 AppComponent의 value를 양방향 바인딩하고, <br/>
+    이를 바로 p 태그 안에 보간하여 사용자가 입력한 값을 바로 보여줄 수 있게 처리<br/>
+    <input [(ngModel)]="value"> <p>{{value}}</p>
+  </div>

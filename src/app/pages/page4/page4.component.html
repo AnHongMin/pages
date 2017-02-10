@@ -1,0 +1,51 @@
+<button (click)="onClickMe()">Click me!</button> 
+{{clickMessage}}
+
+
+<hr/>
+https://angular.io/docs/ts/latest/guide/user-input.html > keyup.components.ts.ts(class v.1) <br/>
+<input (keyup)="onKey($event)">
+<p>{{values}}</p>
+ <br/>
+
+<hr/>
+https://angular.io/docs/ts/latest/guide/user-input.html > keyup.components.ts.ts(class v.1-typed) <br/>
+<input (keyup)="onKey2($event)">
+<p>{{values2}}</p>
+ <br/>
+
+
+<hr/>
+https://angular.io/docs/ts/latest/guide/user-input.html > loop-back.component.ts <br/>
+<input #box (keyup)="0">
+<p>{{box.value}}</p>
+ <br/>
+
+<hr/>
+https://angular.io/docs/ts/latest/guide/user-input.html > keyup.components.ts(v2) <br/>
+<input #box1 (keyup)="onKey1(box1.value)">
+<p>{{values1}}</p>
+<br/>
+
+<hr/>
+https://angular.io/docs/ts/latest/guide/user-input.html > keyup.components.ts(v3) <br/>
+<input #box2 (keyup.enter)="onEnter(box2.value)">
+<p>{{values3}}</p>
+<br/>
+
+
+<hr/>
+<div class="container">
+    <h1>Hero Form</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="alterEgo">Alter Ego</label>
+        <input type="text" class="form-control" id="alterEgo">
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>

@@ -1,0 +1,10 @@
+<ul>
+  <li *ngFor="let product of products" 
+    (click)="handleProductClick(product)" 
+
+    [ngClass]="{collapsed : selectedItemId !== product.id && !noneSelected }">
+    
+      {{product.name}} ({{product.price}})
+      <div *ngIf="selectedItemId === product.id">{{product.details}}</div>
+  </li>
+</ul>
