@@ -15,6 +15,7 @@ var http_1 = require('@angular/http');
 var common_1 = require('@angular/common');
 var router_1 = require('@angular/router');
 var page3_component_1 = require('./page3.component');
+var highlightDirective_component_1 = require('../../components/highlightDirective.component');
 var routes = [
     { path: '', component: page3_component_1.Page3Component,
         children: []
@@ -26,7 +27,7 @@ var Page3Module = (function () {
     Page3Module = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule, router_1.RouterModule.forChild(routes), forms_1.FormsModule, http_1.HttpModule],
-            declarations: [page3_component_1.Page3Component],
+            declarations: [page3_component_1.Page3Component, highlightDirective_component_1.HighlightDirective],
             bootstrap: [page3_component_1.Page3Component]
         }), 
         __metadata('design:paramtypes', [])

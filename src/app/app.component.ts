@@ -14,10 +14,9 @@ import { Component } from '@angular/core';
   <li><a [routerLink]="['/page8']">Page8</a></li>
   <li><a [routerLink]="['/page9']">Page9</a></li>
   <li><a [routerLink]="['/page10']">Page10</a></li>
-  <li><a [routerLink]="['/app1']">App1</a></li>
+  <li><a [routerLink]="['/app1']">App1</a></li>  
   </ul>
-  <h1>Hello {{name}}</h1>
   <router-outlet></router-outlet>
   `,
 })
-export class AppComponent  { name = 'Angular'; }
+export class AppComponent  {  }
