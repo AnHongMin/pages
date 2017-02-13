@@ -21,4 +21,4 @@ var HighlightDirective = (function () {
     return HighlightDirective;
 }());
 exports.HighlightDirective = HighlightDirective;
-//# sourceMappingURL=highlightDirective.component.js.map
+//# sourceMappingURL=highlight.directive.js.map

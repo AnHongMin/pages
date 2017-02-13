@@ -7,7 +7,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
 
 import { Page3Component }  from './page3.component';
-import { HighlightDirective }  from '../../components/highlightDirective.component';
+import { HighlightDirective }  from '../../components/highlight.directive';
 
 const routes: Routes = [
     { path:'', component: Page3Component,
