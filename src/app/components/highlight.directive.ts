@@ -1,11 +1,23 @@
-import { Directive, ElementRef } from '@angular/core';
+import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
-@Directive({ selector: '[highlight]' })
-/** Highlight the attached element in gold */
+@Directive({ selector: '[myHighlight]' })
 export class HighlightDirective {
-  constructor(el: ElementRef) {
-    el.nativeElement.style.backgroundColor = 'gold';
-    console.log(
-      `* AppRoot highlight called for ${el.nativeElement.tagName}`);
+
+  constructor(private el: ElementRef) {
+//    console.log(`* AppRoot highlight called for ${el.nativeElement.tagName}`);
+  }
+
+  @Input() defaultColor: string;
+
+  @HostListener('mouseenter') onMouseEnter() {
+    this.highlight( this.defaultColor);
+  }
+
+  @HostListener('mouseleave') onMouseLeave() {
+    this.highlight(null);
+  }
+
+  private highlight(color: string) {
+    this.el.nativeElement.style.backgroundColor = color;
   }
 }
