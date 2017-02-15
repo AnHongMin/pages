@@ -13,9 +13,9 @@
 <input type="text" name ="Post.title" placeholder="Post.title"/><br/>
 <label>내용 : </label><br/>
 <input type="text" name ="Post.body" placeholder="Post.body" /><br/><br/>
-<button (click)="togglePost(PostForm)">{{showPost ? "수정" : "등록"}}</button>
+<button (click)="togglePost(PostForm)" mySpy>{{showPost ? "수정" : "등록"}}</button>
 <span *ngIf="showPost">
-<button (click)="cancelPost(PostForm)">취소</button>
+<button (click)="cancelPost(PostForm)" mySpy>취소</button>
 </span>
 </form>
 </div>
@@ -23,7 +23,7 @@
 <div class="box">
 <h3>Posts List</h3>
 <ul class="post-list">
-<li *ngFor ="let post of posts; let j = index">
+<li *ngFor ="let post of posts; let j = index" mySpy>
 <p myHighlight defaultColor="violet">
 [고유키 : {{post.id}}] <button (click)="editPost(PostForm, post)">Select</button>
 </p>

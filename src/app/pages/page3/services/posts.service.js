@@ -31,7 +31,7 @@ var PostsService = (function () {
         }
         var body = urlSearchParams.toString();
         // https://angular.io/docs/ts/latest/api/http/index/RequestOptions-class.html
-        var options = new http_1.RequestOptions({ headers: headers, method: 'post' });
+        var options = new http_1.RequestOptions({ headers: headers });
         var url = 'http://localhost:8080/post.do?method=insertPost';
         return this.http.post(url, body, options).map(function (res) { return res.json(); });
     };
@@ -42,7 +42,7 @@ var PostsService = (function () {
             urlSearchParams.append(n, post[n]);
         }
         var body = urlSearchParams.toString();
-        var options = new http_1.RequestOptions({ headers: headers, method: 'post' });
+        var options = new http_1.RequestOptions({ headers: headers });
         var url = 'http://localhost:8080/post.do?method=updatePost';
         return this.http.post(url, body, options).map(function (res) { return res.json(); });
     };
@@ -53,7 +53,7 @@ var PostsService = (function () {
             urlSearchParams.append(n, post[n]);
         }
         var body = urlSearchParams.toString();
-        var options = new http_1.RequestOptions({ headers: headers, method: 'post' });
+        var options = new http_1.RequestOptions({ headers: headers });
         var url = 'http://localhost:8080/post.do?method=deletePost';
         return this.http.post(url, body, options).map(function (res) { return res.json(); });
         /*

@@ -26,7 +26,7 @@ export class PostsService {
         let body = urlSearchParams.toString();
 
         // https://angular.io/docs/ts/latest/api/http/index/RequestOptions-class.html
-        let options = new RequestOptions({ headers: headers, method: 'post' });
+        let options = new RequestOptions({ headers: headers });
 
         var url = 'http://localhost:8080/post.do?method=insertPost';
 
@@ -40,7 +40,7 @@ export class PostsService {
             urlSearchParams.append(n, post[n]);
         }
         let body = urlSearchParams.toString();
-        let options = new RequestOptions({ headers: headers, method: 'post' });
+        let options = new RequestOptions({ headers: headers });
         var url = 'http://localhost:8080/post.do?method=updatePost';
         return this.http.post(url, body, options).map(res => res.json());
     }
@@ -52,7 +52,7 @@ export class PostsService {
             urlSearchParams.append(n, post[n]);
         }
         let body = urlSearchParams.toString();
-        let options = new RequestOptions({ headers: headers, method: 'post' });
+        let options = new RequestOptions({ headers: headers });
 
         var url = 'http://localhost:8080/post.do?method=deletePost';
         return this.http.post(url, body, options).map(res => res.json());
