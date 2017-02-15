@@ -18,6 +18,7 @@ import { Page7Module } from './pages/page7/page7.module';
 import { Page8Module } from './pages/page8/page8.module';
 import { Page9Module } from './pages/page9/page9.module';
 import { Page10Module } from './pages/page10/page10.module';
+import { Page11Module } from './pages/page11/page11.module';
 
 const appRoutes: Routes = [
   { path:'', loadChildren:'app/pages/page1/page1.module#Page1Module' },
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   { path:'page8', loadChildren:'app/pages/page8/page8.module#Page8Module' },
   { path:'page9', loadChildren:'app/pages/page9/page9.module#Page9Module' },
   { path:'page10', loadChildren:'app/pages/page10/page10.module#Page10Module' },
+  { path:'page11', loadChildren:'app/pages/page11/page11.module#Page11Module' },
   { path:'app1', component:App1Component }
 ]
 
@@ -43,7 +45,7 @@ const appRoutes: Routes = [
     BrowserModule, RouterModule.forRoot(appRoutes), 
     Page1Module, Page2Module, Page3Module, Page4Module,
     Page5Module, Page6Module, Page7Module, Page8Module, 
-    Page9Module, Page10Module
+    Page9Module, Page10Module, Page11Module
   ],
   declarations: [ AppComponent, App1Component ],
   bootstrap:    [ AppComponent ]

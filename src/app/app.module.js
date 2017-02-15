@@ -25,6 +25,7 @@ var page7_module_1 = require('./pages/page7/page7.module');
 var page8_module_1 = require('./pages/page8/page8.module');
 var page9_module_1 = require('./pages/page9/page9.module');
 var page10_module_1 = require('./pages/page10/page10.module');
+var page11_module_1 = require('./pages/page11/page11.module');
 var appRoutes = [
     { path: '', loadChildren: 'app/pages/page1/page1.module#Page1Module' },
     { path: 'page2', loadChildren: 'app/pages/page2/page2.module#Page2Module' },
@@ -36,6 +37,7 @@ var appRoutes = [
     { path: 'page8', loadChildren: 'app/pages/page8/page8.module#Page8Module' },
     { path: 'page9', loadChildren: 'app/pages/page9/page9.module#Page9Module' },
     { path: 'page10', loadChildren: 'app/pages/page10/page10.module#Page10Module' },
+    { path: 'page11', loadChildren: 'app/pages/page11/page11.module#Page11Module' },
     { path: 'app1', component: app1_component_1.App1Component }
 ];
 // 추가 종료
@@ -51,7 +53,7 @@ var AppModule = (function () {
                 platform_browser_1.BrowserModule, router_1.RouterModule.forRoot(appRoutes),
                 page1_module_1.Page1Module, page2_module_1.Page2Module, page3_module_1.Page3Module, page4_module_1.Page4Module,
                 page5_module_1.Page5Module, page6_module_1.Page6Module, page7_module_1.Page7Module, page8_module_1.Page8Module,
-                page9_module_1.Page9Module, page10_module_1.Page10Module
+                page9_module_1.Page9Module, page10_module_1.Page10Module, page11_module_1.Page11Module
             ],
             declarations: [app_component_1.AppComponent, app1_component_1.App1Component],
             bootstrap: [app_component_1.AppComponent]
