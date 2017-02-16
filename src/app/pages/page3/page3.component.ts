@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { PostsService } from './services/posts.service';
 
+
 @Component({
   moduleId: module.id,
   selector: 'page3',
@@ -11,7 +12,7 @@ import { PostsService } from './services/posts.service';
 
 export class Page3Component  {
   posts : Post[];
-  post : Post;
+  selectedPost : Post;
   showPost : boolean;
 
   constructor(private postsService : PostsService ){
@@ -36,7 +37,7 @@ export class Page3Component  {
 
   // post 객체에 form 값 인입
   setPostFormValue(PostForm : any){
-    this.post = {
+    this.selectedPost = {
       userId : PostForm['Post.userId'].value, 
       id : PostForm['Post.id'].value,
       title : PostForm['Post.title'].value,
@@ -47,16 +48,17 @@ export class Page3Component  {
   // 취소
   cancelPost(PostForm : any){
     PostForm.reset();
-    // 버튼 edit -> add 로 변경
+    this.setPostFormValue(PostForm);
+    // 버튼 edit -> add 로 변경    
     this.showPost = false;
   }
 
   // 신규등록
   addPost(PostForm : any){
     this.setPostFormValue(PostForm);
-//  this.posts.push(this.post);
+//  this.posts.push(this.selectedPost);
 
-    this.postsService.addPosts(this.post).subscribe(res => {
+    this.postsService.addPosts(this.selectedPost).subscribe(res => {
       if(res.success == true){
         this.getPosts();
         this.cancelPost(PostForm);
@@ -70,7 +72,7 @@ export class Page3Component  {
   modifyPost(PostForm : any){
     this.setPostFormValue(PostForm);
 
-    this.postsService.modifyPost(this.post).subscribe(res => {
+    this.postsService.modifyPost(this.selectedPost).subscribe(res => {
       if(res.success == true){        
         this.getPosts();
         this.cancelPost(PostForm);
@@ -87,6 +89,7 @@ export class Page3Component  {
     PostForm['Post.id'].value = post.id;
     PostForm['Post.title'].value = post.title;
     PostForm['Post.body'].value = post.body;
+    this.selectedPost = post;
     this.showPost = true;
   }
 

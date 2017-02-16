@@ -4,6 +4,12 @@
 	padding: 0px 15px 15px 15px;
 }
 
+.post-detail {
+	border: 1px solid red;
+	margin: 10px;
+	padding: 0px 15px 15px 15px;
+}
+
 .post-list {
 	border: 1px solid black;
 	overflow-y:scroll;

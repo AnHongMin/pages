@@ -15,7 +15,9 @@ var SpyDirective = (function () {
     function SpyDirective(el) {
         this.el = el;
     }
+    // https://angular.io/docs/ts/latest/api/core/index/OnInit-class.html
     SpyDirective.prototype.ngOnInit = function () { this.logIt("onInit"); };
+    // https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html
     SpyDirective.prototype.ngOnDestroy = function () { this.logIt("onDestroy"); };
     SpyDirective.prototype.logIt = function (msg) {
         console.log('SpyDirective > ' + msg);

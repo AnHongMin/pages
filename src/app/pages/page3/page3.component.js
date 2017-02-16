@@ -33,7 +33,7 @@ var Page3Component = (function () {
     };
     // post 객체에 form 값 인입
     Page3Component.prototype.setPostFormValue = function (PostForm) {
-        this.post = {
+        this.selectedPost = {
             userId: PostForm['Post.userId'].value,
             id: PostForm['Post.id'].value,
             title: PostForm['Post.title'].value,
@@ -43,15 +43,16 @@ var Page3Component = (function () {
     // 취소
     Page3Component.prototype.cancelPost = function (PostForm) {
         PostForm.reset();
-        // 버튼 edit -> add 로 변경
+        this.setPostFormValue(PostForm);
+        // 버튼 edit -> add 로 변경    
         this.showPost = false;
     };
     // 신규등록
     Page3Component.prototype.addPost = function (PostForm) {
         var _this = this;
         this.setPostFormValue(PostForm);
-        //  this.posts.push(this.post);
-        this.postsService.addPosts(this.post).subscribe(function (res) {
+        //  this.posts.push(this.selectedPost);
+        this.postsService.addPosts(this.selectedPost).subscribe(function (res) {
             if (res.success == true) {
                 _this.getPosts();
                 _this.cancelPost(PostForm);
@@ -65,7 +66,7 @@ var Page3Component = (function () {
     Page3Component.prototype.modifyPost = function (PostForm) {
         var _this = this;
         this.setPostFormValue(PostForm);
-        this.postsService.modifyPost(this.post).subscribe(function (res) {
+        this.postsService.modifyPost(this.selectedPost).subscribe(function (res) {
             if (res.success == true) {
                 _this.getPosts();
                 _this.cancelPost(PostForm);
@@ -82,6 +83,7 @@ var Page3Component = (function () {
         PostForm['Post.id'].value = post.id;
         PostForm['Post.title'].value = post.title;
         PostForm['Post.body'].value = post.body;
+        this.selectedPost = post;
         this.showPost = true;
     };
     // 삭제

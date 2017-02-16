@@ -2,7 +2,7 @@
 
 <hr>
 
-<div class="box">
+<div [class]="showPost !== false ? 'post-detail' : 'box'">
 <h3>{{showPost ? "Edit" : "Add"}} Post</h3>
 <form #PostForm>
 <label>등록자 : </label><br/>
