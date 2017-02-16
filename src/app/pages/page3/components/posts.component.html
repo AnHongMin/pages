@@ -1,0 +1,39 @@
+
+<h1>Posts</h1>
+
+<hr>
+
+<div [class]="showPost !== false ? 'post-detail' : 'box'">
+<h3>{{showPost ? "Edit" : "Add"}} Post</h3>
+<form #PostForm>
+<label>등록자 : </label><br/>
+<input type="text" name ="Post.userId" placeholder="Post.userId"/><br/>
+<label>고유키 : </label><br/>
+<input type="text" name ="Post.id"  placeholder="Post.id"/><br/>
+<label>제목 : </label><br/>
+<input type="text" name ="Post.title" placeholder="Post.title"/><br/>
+<label>내용 : </label><br/>
+<input type="text" name ="Post.body" placeholder="Post.body" /><br/><br/>
+<button (click)="togglePost(PostForm)" mySpy>{{showPost ? "수정" : "등록"}}</button>
+<span *ngIf="showPost">
+<button (click)="cancelPost(PostForm)" mySpy>취소</button>
+</span>
+</form>
+</div>
+
+<div class="box">
+<h3>Posts List</h3>
+<ul class="post-list">
+<li *ngFor ="let post of posts; let j = index" mySpy>
+<p myHighlight defaultColor="violet">
+[고유키 : {{post.id}}] <button (click)="editPost(PostForm, post)">Select</button>
+</p>
+<p myHighlight defaultColor="cyan">
+[제목 : {{post.title}} ] <button (click)="deletePost(j, post, PostForm)">X</button>
+</p>
+<p myHighlight defaultColor="lightgreen">
+{{post.body}}
+</p>
+</li>
+</ul>
+</div>

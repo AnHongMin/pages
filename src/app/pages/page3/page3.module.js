@@ -17,6 +17,7 @@ var router_1 = require('@angular/router');
 var page3_component_1 = require('./page3.component');
 var highlight_directive_1 = require('../../components/highlight.directive');
 var spy_directive_1 = require('../../components/spy.directive');
+var posts_component_1 = require('./components/posts.component');
 var routes = [
     { path: '', component: page3_component_1.Page3Component,
         children: []
@@ -28,7 +29,7 @@ var Page3Module = (function () {
     Page3Module = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule, router_1.RouterModule.forChild(routes), forms_1.FormsModule, http_1.HttpModule],
-            declarations: [page3_component_1.Page3Component, highlight_directive_1.HighlightDirective, spy_directive_1.SpyDirective],
+            declarations: [page3_component_1.Page3Component, highlight_directive_1.HighlightDirective, spy_directive_1.SpyDirective, posts_component_1.PostsComponent],
             bootstrap: [page3_component_1.Page3Component]
         }), 
         __metadata('design:paramtypes', [])
