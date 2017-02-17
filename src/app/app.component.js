@@ -15,7 +15,7 @@ var AppComponent = (function () {
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            template: "\n  <ul>\n  <li><a [routerLink]=\"['/']\">Home</a></li>\n  <li><a [routerLink]=\"['/page2']\">Page2</a></li>\n  <li><a [routerLink]=\"['/page3']\">Page3</a></li>\n  <li><a [routerLink]=\"['/page4']\">Page4</a></li>\n  <li><a [routerLink]=\"['/page5']\">Page5</a></li>\n  <li><a [routerLink]=\"['/page6']\">Page6</a></li>\n  <li><a [routerLink]=\"['/page7']\">Page7</a></li>\n  <li><a [routerLink]=\"['/page8']\">Page8</a></li>\n  <li><a [routerLink]=\"['/page9']\">Page9</a></li>\n  <li><a [routerLink]=\"['/page10']\">Page10</a></li>\n  <li><a [routerLink]=\"['/page11']\">Page11</a></li>\n  <li><a [routerLink]=\"['/app1']\">App1</a></li>  \n  </ul>\n  <router-outlet></router-outlet>\n  ",
+            template: "\n  <nav>\n  <a [routerLink]=\"['/']\">Home</a>\n  <a [routerLink]=\"['/page2']\">Page2</a>\n  <a [routerLink]=\"['/page3']\">Page3</a>\n  <a [routerLink]=\"['/page4']\">Page4</a>\n  <a [routerLink]=\"['/page5']\">Page5</a>\n  <a [routerLink]=\"['/page6']\">Page6</a>\n  <a [routerLink]=\"['/page7']\">Page7</a>\n  <a [routerLink]=\"['/page8']\">Page8</a>\n  <a [routerLink]=\"['/page9']\">Page9</a>\n  <a [routerLink]=\"['/page10']\">Page10</a>\n  <a [routerLink]=\"['/page11']\">Page11</a>\n  <a [routerLink]=\"['/app1']\">App1</a>\n  </nav>\n  <router-outlet></router-outlet>\n  ",
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
