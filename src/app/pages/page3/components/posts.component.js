@@ -9,10 +9,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var posts_service_1 = require('../services/posts.service');
 var PostsComponent = (function () {
-    function PostsComponent(postsService) {
+    function PostsComponent(postsService, _router) {
         this.postsService = postsService;
+        this._router = _router;
         this.getPosts();
         this.showPost = false;
     }
@@ -86,6 +88,10 @@ var PostsComponent = (function () {
         this.selectedPost = post;
         this.showPost = true;
     };
+    // 상세조회 화면이동
+    PostsComponent.prototype.goPost = function (post) {
+        this._router.navigate(['newPost', post.id]);
+    };
     // 삭제
     PostsComponent.prototype.deletePost = function (i, post, PostForm) {
         var _this = this;
@@ -109,7 +115,7 @@ var PostsComponent = (function () {
             styleUrls: ['./posts.component.css'],
             providers: [posts_service_1.PostsService]
         }), 
-        __metadata('design:paramtypes', [posts_service_1.PostsService])
+        __metadata('design:paramtypes', [posts_service_1.PostsService, router_1.Router])
     ], PostsComponent);
     return PostsComponent;
 }());

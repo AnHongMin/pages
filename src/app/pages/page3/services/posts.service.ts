@@ -14,6 +14,12 @@ export class PostsService {
         return this.http.get(url).map(res => res.json());
     }
 
+    getPost(id : string){
+        var url = 'http://localhost:8080/post.do?method=getPost&id='+id;
+        return this.http.get(url).map(res => res.json());
+    }
+
+
     addPosts(post : any){
         // https://angular.io/docs/ts/latest/api/http/index/Headers-class.html
         let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });

@@ -21,6 +21,10 @@ var PostsService = (function () {
         var url = 'http://localhost:8080/post.do?method=getList';
         return this.http.get(url).map(function (res) { return res.json(); });
     };
+    PostsService.prototype.getPost = function (id) {
+        var url = 'http://localhost:8080/post.do?method=getPost&id=' + id;
+        return this.http.get(url).map(function (res) { return res.json(); });
+    };
     PostsService.prototype.addPosts = function (post) {
         // https://angular.io/docs/ts/latest/api/http/index/Headers-class.html
         var headers = new http_1.Headers({ 'Content-Type': 'application/x-www-form-urlencoded' });

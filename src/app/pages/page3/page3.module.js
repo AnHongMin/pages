@@ -18,10 +18,12 @@ var page3_component_1 = require('./page3.component');
 var highlight_directive_1 = require('../../components/highlight.directive');
 var spy_directive_1 = require('../../components/spy.directive');
 var posts_component_1 = require('./components/posts.component');
+var new_post_component_1 = require('./components/new-post.component');
 var routes = [
     { path: '', component: page3_component_1.Page3Component,
         children: []
-    }
+    },
+    { path: 'newPost/:id', component: new_post_component_1.NewPostComponent }
 ];
 var Page3Module = (function () {
     function Page3Module() {
@@ -29,7 +31,7 @@ var Page3Module = (function () {
     Page3Module = __decorate([
         core_1.NgModule({
             imports: [common_1.CommonModule, router_1.RouterModule.forChild(routes), forms_1.FormsModule, http_1.HttpModule],
-            declarations: [page3_component_1.Page3Component, highlight_directive_1.HighlightDirective, spy_directive_1.SpyDirective, posts_component_1.PostsComponent],
+            declarations: [page3_component_1.Page3Component, highlight_directive_1.HighlightDirective, spy_directive_1.SpyDirective, posts_component_1.PostsComponent, new_post_component_1.NewPostComponent],
             bootstrap: [page3_component_1.Page3Component]
         }), 
         __metadata('design:paramtypes', [])

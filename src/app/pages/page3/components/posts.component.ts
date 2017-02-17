@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 import { PostsService } from '../services/posts.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class PostsComponent  {
     selectedPost : Post;
     showPost : boolean;
 
-    constructor(private postsService : PostsService ){
+    constructor(private postsService : PostsService, private _router : Router ){
         this.getPosts();
         this.showPost = false;
     }
@@ -91,6 +92,11 @@ export class PostsComponent  {
         PostForm['Post.body'].value = post.body;
         this.selectedPost = post;
         this.showPost = true;
+    }
+
+    // 상세조회 화면이동
+    goPost(post : any){
+        this._router.navigate(['newPost',post.id]);      
     }
 
     // 삭제

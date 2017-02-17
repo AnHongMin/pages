@@ -10,18 +10,20 @@ import { Page3Component }  from './page3.component';
 import { HighlightDirective }  from '../../components/highlight.directive';
 import { SpyDirective }  from '../../components/spy.directive';
 import { PostsComponent } from './components/posts.component';
+import { NewPostComponent } from './components/new-post.component';
 
 const routes: Routes = [
     { path:'', component: Page3Component,
         children: [
             //
         ]
-     }
+     },
+     { path:'newPost/:id', component:NewPostComponent }
 ]
 
 @NgModule({
   imports:      [ CommonModule, RouterModule.forChild(routes), FormsModule, HttpModule ],
-  declarations: [ Page3Component, HighlightDirective, SpyDirective, PostsComponent ],
+  declarations: [ Page3Component, HighlightDirective, SpyDirective, PostsComponent, NewPostComponent ],
   bootstrap:    [ Page3Component ]
 })
 

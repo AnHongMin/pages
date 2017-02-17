@@ -20,8 +20,8 @@ var SpyDirective = (function () {
     // https://angular.io/docs/ts/latest/api/core/index/OnDestroy-class.html
     SpyDirective.prototype.ngOnDestroy = function () { this.logIt("onDestroy"); };
     SpyDirective.prototype.logIt = function (msg) {
-        console.log('SpyDirective > ' + msg);
-        console.log(this.el);
+        //    console.log('SpyDirective > ' + msg);
+        //    console.log(this.el);
     };
     SpyDirective = __decorate([
         core_1.Directive({ selector: '[mySpy]' }), 
