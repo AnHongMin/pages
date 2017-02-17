@@ -18,13 +18,13 @@ var NewPostComponent = (function () {
         this._route = _route;
         this._router = _router;
         this.postsService = postsService;
-        var id = this._route.snapshot.params['id'];
-        this.id = id;
+        var selectedId = this._route.snapshot.params['id'];
+        this.selectedId = selectedId;
         //        console.log(typeof id);
-        if (id === '0') {
+        if (selectedId === '0') {
         }
         else {
-            this.postsService.getPost(id).subscribe(function (res) {
+            this.postsService.getPost(selectedId).subscribe(function (res) {
                 _this.selectedPost = res;
                 _this.userId = _this.selectedPost.userId;
                 _this.id = _this.selectedPost.id;

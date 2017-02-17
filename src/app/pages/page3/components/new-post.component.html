@@ -1,5 +1,5 @@
-<div [class]="id !== '0'  ? 'post-detail' : 'box'">
-<h3>{{id !== '0' ? "Edit" : "Add"}} Post</h3>
+<div [class]="selectedId !== '0'  ? 'post-detail' : 'box'">
+<h3>{{selectedId !== '0' ? "Edit" : "Add"}} Post</h3>
 <form #PostForm>
     <div>
         <label>등록자 : </label>

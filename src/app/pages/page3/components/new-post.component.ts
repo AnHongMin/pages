@@ -15,10 +15,10 @@ import { PostsService } from '../services/posts.service';
 })
 
 export class NewPostComponent implements OnInit  {
-    id : string;
-
+    selectedId : string;
     selectedPost: Post;
 
+    id : string;
     userId : string; 
     title : string;
     body : string;
@@ -28,13 +28,13 @@ export class NewPostComponent implements OnInit  {
         private _router: Router,
         private postsService : PostsService
     ) {
-        let id = this._route.snapshot.params['id'];
-        this.id = id;
+        let selectedId = this._route.snapshot.params['id'];
+        this.selectedId = selectedId;
 
 //        console.log(typeof id);
-        if(id === '0'){
+        if(selectedId === '0'){
         }else{
-            this.postsService.getPost(id).subscribe(res => {
+            this.postsService.getPost(selectedId).subscribe(res => {
                 this.selectedPost = res;
                 this.userId = this.selectedPost.userId;
                 this.id = this.selectedPost.id;
