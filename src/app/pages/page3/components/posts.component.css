@@ -11,16 +11,27 @@
 }
 
 .post-list {
-	border: 1px solid black;
-	overflow-y:scroll;
 	margin: 10px;
-	list-style: none;
+	padding: 0px 15px 15px 15px;
+	border: 1px solid black;
+}
+
+.post-list ul {
+	overflow-y:scroll;
 	height:200px;
+	list-style:none;
+	margin: 16px 0;
+	padding: 0;
 }
 
 .post-list li {
-	position: relative;
-	font-size: 15px;
-	box-shadow: 0 -1px 0 #ededed;
-	overflow: hidden;
+	cursor: pointer;
+	transition : padding 0.3s;
+}
+
+.post-list li:hover {
+	padding-left : 8px;
+	color: #233dcb;
+	font-weight: bold;
+	border-left: 3px solid #233dcb;
 }
