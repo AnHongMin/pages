@@ -29,9 +29,10 @@ var PostsComponent = (function () {
     // 목록조회
     PostsComponent.prototype.getPosts = function () {
         var _this = this;
-        this.postsService.getPosts().subscribe(function (posts) {
-            _this.posts = posts;
-        });
+        this.postsService.getPosts().subscribe(function (data) {
+            _this.posts = data;
+            console.log(JSON.stringify(data));
+        }, function (error) { return alert(error); }, function () { return console.log("Finished"); });
     };
     // post 객체에 form 값 인입
     PostsComponent.prototype.setPostFormValue = function (PostForm) {
@@ -76,7 +77,7 @@ var PostsComponent = (function () {
             else {
                 console.log('error');
             }
-        });
+        }, function (error) { return alert(error); }, function () { return console.log("Finished"); });
     };
     // 상세조회
     PostsComponent.prototype.editPost = function (PostForm, post) {

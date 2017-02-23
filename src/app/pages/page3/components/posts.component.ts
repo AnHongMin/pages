@@ -31,9 +31,14 @@ export class PostsComponent  {
 
     // 목록조회
     getPosts(){
-        this.postsService.getPosts().subscribe(posts => {
-            this.posts = posts;
-        });
+        this.postsService.getPosts().subscribe(
+            data => {
+                this.posts = data; 
+                console.log(JSON.stringify(data))
+            },
+            error => alert(error),
+            () => console.log("Finished")
+        );
     }
 
     // post 객체에 form 값 인입
@@ -73,14 +78,18 @@ export class PostsComponent  {
     modifyPost(PostForm : any){
         this.setPostFormValue(PostForm);
 
-        this.postsService.modifyPost(this.selectedPost).subscribe(res => {
-            if(res.success == true){        
-                this.getPosts();
-                this.cancelPost(PostForm);
-            }else{
-                console.log('error');
-            }
-        });
+        this.postsService.modifyPost(this.selectedPost).subscribe(
+            res => {
+                if(res.success == true){        
+                    this.getPosts();
+                    this.cancelPost(PostForm);
+                }else{
+                    console.log('error');
+                }
+            },
+            error => alert(error),
+            () => console.log("Finished")
+        );
     }
 
     // 상세조회
