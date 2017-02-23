@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 import { PostsService } from '../services/posts.service';
@@ -8,10 +8,19 @@ import { PostsService } from '../services/posts.service';
     selector: 'posts',
     templateUrl: `posts.component.html`,
     styleUrls: ['./posts.component.css'],
-    providers : [PostsService]
+    providers : [PostsService],
+    inputs :['parentValue:passedValue']
 })
 
 export class PostsComponent  {
+    date = new Date();
+    parentValue : string;
+    @Output() childChanged = new EventEmitter<string>();
+
+    onChange(value :string){
+        this.childChanged.emit(value);
+    }
+
     posts : Post[];
     selectedPost : Post;
     showPost : boolean;

@@ -1,5 +1,17 @@
 
 <hr>
+<h3>Date</h3>
+<div>
+    {{date |  date:'short'}}
+</div>
+
+<hr>
+<div>
+    <h2> Child</h2>
+    <p>Value entered in parent componetn : {{parentValue}}</p>
+    <input type="text" #childInput (keyup)="onChange(childInput.value)">
+</div>
+
 
 <div class="post-list">
 <h3>Posts List</h3>
@@ -13,7 +25,7 @@
     <div myHighlight defaultColor="cyan">
         <label><button (click)="editPost(PostForm, post)">Select</button></label>
         <label>제목</label>
-        {{post.title}}        
+        {{post.title | uppercase}}        
     </div>
     <div myHighlight defaultColor="lightgreen">
         <label><button (click)="goPost(post)">Go</button></label>

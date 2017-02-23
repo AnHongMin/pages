@@ -15,9 +15,14 @@ var PostsComponent = (function () {
     function PostsComponent(postsService, _router) {
         this.postsService = postsService;
         this._router = _router;
+        this.date = new Date();
+        this.childChanged = new core_1.EventEmitter();
         this.getPosts();
         this.showPost = false;
     }
+    PostsComponent.prototype.onChange = function (value) {
+        this.childChanged.emit(value);
+    };
     PostsComponent.prototype.togglePost = function (PostForm) {
         if (this.showPost == true) {
             this.modifyPost(PostForm);
@@ -108,13 +113,18 @@ var PostsComponent = (function () {
             }
         });
     };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], PostsComponent.prototype, "childChanged", void 0);
     PostsComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'posts',
             templateUrl: "posts.component.html",
             styleUrls: ['./posts.component.css'],
-            providers: [posts_service_1.PostsService]
+            providers: [posts_service_1.PostsService],
+            inputs: ['parentValue:passedValue']
         }), 
         __metadata('design:paramtypes', [posts_service_1.PostsService, router_1.Router])
     ], PostsComponent);

@@ -16,7 +16,8 @@ var Page3Component = (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'page3',
-            templateUrl: "page3.component.html"
+            templateUrl: "page3.component.html",
+            inputs: ['childValue']
         }), 
         __metadata('design:paramtypes', [])
     ], Page3Component);

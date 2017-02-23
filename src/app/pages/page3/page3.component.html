@@ -2,4 +2,12 @@
 
 <div><a [routerLink]="['/newPost/0']">New Post</a></div>
 
-<posts></posts>
+<hr/>
+
+<h1>Parent</h1>
+<p>Value entered in child component : {{childValue}}</p>
+<input type="text" #parentInput (keyup)="0"><br/>
+
+<hr/>
+
+<posts [passedValue]="parentInput.value" (childChanged)="childValue=$event"></posts>
