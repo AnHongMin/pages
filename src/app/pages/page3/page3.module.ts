@@ -11,6 +11,7 @@ import { HighlightDirective }  from '../../components/highlight.directive';
 import { SpyDirective }  from '../../components/spy.directive';
 import { PostsComponent } from './components/posts.component';
 import { NewPostComponent } from './components/new-post.component';
+import { jQueryComponent } from './components/jquery.component';
 
 const routes: Routes = [
     { path:'', component: Page3Component,
@@ -23,7 +24,7 @@ const routes: Routes = [
 
 @NgModule({
   imports:      [ CommonModule, RouterModule.forChild(routes), FormsModule, HttpModule ],
-  declarations: [ Page3Component, HighlightDirective, SpyDirective, PostsComponent, NewPostComponent ],
+  declarations: [ Page3Component, HighlightDirective, SpyDirective, PostsComponent, NewPostComponent, jQueryComponent ],
   bootstrap:    [ Page3Component ]
 })
 
