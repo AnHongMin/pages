@@ -30,6 +30,7 @@ export class PostsService {
             urlSearchParams.append(n, post[n]);
         }
         let body = urlSearchParams.toString();
+        console.log('body : '+body);
 
         // https://angular.io/docs/ts/latest/api/http/index/RequestOptions-class.html
         let options = new RequestOptions({ headers: headers });

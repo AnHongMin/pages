@@ -34,6 +34,7 @@ var PostsService = (function () {
             urlSearchParams.append(n, post[n]);
         }
         var body = urlSearchParams.toString();
+        console.log('body : ' + body);
         // https://angular.io/docs/ts/latest/api/http/index/RequestOptions-class.html
         var options = new http_1.RequestOptions({ headers: headers });
         var url = 'http://localhost:8080/post.do?method=insertPost';
