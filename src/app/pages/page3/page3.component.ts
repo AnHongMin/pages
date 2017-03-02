@@ -10,4 +10,8 @@ import { Component } from '@angular/core';
 
 export class Page3Component  {
   childValue:string;
+
+  selectedPost(selectedPost : any){
+    alert(JSON.stringify(selectedPost));
+  }
 }

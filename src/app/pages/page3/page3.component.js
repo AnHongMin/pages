@@ -12,6 +12,9 @@ var core_1 = require('@angular/core');
 var Page3Component = (function () {
     function Page3Component() {
     }
+    Page3Component.prototype.selectedPost = function (selectedPost) {
+        alert(JSON.stringify(selectedPost));
+    };
     Page3Component = __decorate([
         core_1.Component({
             moduleId: module.id,

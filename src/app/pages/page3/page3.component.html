@@ -1,17 +1,24 @@
-<hr/>
-
-<div><a [routerLink]="['/newPost/0']">New Post</a></div>
 
 <hr/>
 <h1>jquery</h1>
 <my-jquery></my-jquery>
 
 <hr/>
-
 <h1>Parent</h1>
 <p>Value entered in child component : {{childValue}}</p>
 <input type="text" #parentInput (keyup)="0"><br/>
 
 <hr/>
 
-<posts [passedValue]="parentInput.value" (childChanged)="childValue=$event"></posts>
+<posts [passedValue]="parentInput.value" (childChanged)="childValue=$event" #posts>
+<hr/>
+<div>
+    <a [routerLink]="['/newPost/0']">New Post</a>
+</div>
+<div>
+{{posts.selectedPost | json}}
+<button (click)="selectedPost(posts.selectedPost)">확인</button>
+</div>
+</posts>
+
+
