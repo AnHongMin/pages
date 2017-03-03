@@ -31,6 +31,13 @@ var PostsComponent = (function () {
             this.addPost(PostForm);
         }
     };
+    // JSONP    
+    PostsComponent.prototype.getLoginData = function () {
+        var _this = this;
+        this.postsService.getLoginData().subscribe(function (data) {
+            _this.jsonpValue = JSON.stringify(data);
+        }, function (error) { return alert(error); }, function () { return console.log("getLoginData > Finished"); });
+    };
     // 목록조회
     PostsComponent.prototype.getPosts = function () {
         var _this = this;

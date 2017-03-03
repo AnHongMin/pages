@@ -15,6 +15,7 @@ import { PostsService } from '../services/posts.service';
 export class PostsComponent  {
     date = new Date();
     parentValue : string;
+    jsonpValue : string;
     @Output() childChanged = new EventEmitter<string>();
 
     onChange(value :string){
@@ -38,12 +39,23 @@ export class PostsComponent  {
         }
     }
 
+    // JSONP    
+    getLoginData(){
+        this.postsService.getLoginData().subscribe(
+            data => {
+                this.jsonpValue = JSON.stringify(data);
+            },
+            error => alert(error),
+            () => console.log("getLoginData > Finished")
+        );
+    }
+
     // 목록조회
     getPosts(){
         this.postsService.getPosts().subscribe(
             data => {
                 this.posts = data; 
-                console.log(JSON.stringify(data))
+                console.log(JSON.stringify(data));
             },
             error => alert(error),
             () => console.log("Finished")

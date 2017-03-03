@@ -12,10 +12,23 @@ var core_1 = require('@angular/core');
 var http_1 = require('@angular/http');
 require('rxjs/add/operator/map');
 var PostsService = (function () {
-    function PostsService(http) {
+    function PostsService(http, jsonp) {
         this.http = http;
+        this.jsonp = jsonp;
         //console.log('PostsService Initialized..');
+        this.times = 0;
     }
+    PostsService.prototype.getLoginData = function () {
+        var url = "http://192.168.52.156/TEST/data/loginData.asp";
+        var params = new http_1.URLSearchParams();
+        params.set('sUSER_ID', 'MPC002');
+        params.set('sUSERPWD', 'mpc2015!!');
+        params.set('callback', "__ng_jsonp__.__req" + this.times + ".finished");
+        this.times = this.times + 1;
+        return this.jsonp
+            .get(url, { search: params })
+            .map(function (res) { return res.json(); });
+    };
     PostsService.prototype.getPosts = function () {
         //   'https://jsonplaceholder.typicode.com/posts'
         var url = 'http://localhost:8080/post.do?method=getList';
@@ -94,7 +107,7 @@ var PostsService = (function () {
     };
     PostsService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [http_1.Http, http_1.Jsonp])
     ], PostsService);
     return PostsService;
 }());

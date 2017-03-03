@@ -1,11 +1,25 @@
 import {Injectable} from '@angular/core';
-import {Http, RequestOptions, Headers, URLSearchParams} from '@angular/http';
+import {Http, RequestOptions, Headers, URLSearchParams, Jsonp} from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
 export class PostsService {
-    constructor(private http: Http){
+    constructor(private http: Http, private jsonp : Jsonp){
         //console.log('PostsService Initialized..');
+        this.times=0;
+    }
+
+    private times : number;
+    getLoginData(){
+        let url  = "http://192.168.52.156/TEST/data/loginData.asp";
+        let params = new URLSearchParams();
+        params.set('sUSER_ID', 'MPC002');
+        params.set('sUSERPWD', 'mpc2015!!');
+        params.set('callback', `__ng_jsonp__.__req${this.times}.finished`);
+        this.times=this.times+1;
+        return this.jsonp
+        .get(url, { search: params })
+        .map(res => res.json());
     }
 
     getPosts(){

@@ -1,4 +1,3 @@
-<hr>
 <div>
     <h2> Child</h2>
     <p>Value entered in parent componetn : {{parentValue}}</p>
@@ -6,6 +5,8 @@
 </div>
 
 <hr>
+<p>JSONP Data : {{jsonpValue}}</p>
+<button (click)="getLoginData()">JSONP</button>
 <ng-content></ng-content>
 <div class="post-list">
 <h3>Posts List ( {{date |  date:'short'}} )</h3>
