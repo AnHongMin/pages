@@ -76,5 +76,7 @@ https://www.youtube.com/watch?v=d6Dp4Dyeke8&list=PL55RiY5tL51olfU2IEqr455EYLkrhm
 
 # git 설정 제거
 - https://github.com/angular/quickstart/blob/master/README.md
+```shell
 rd .git /s /q
 rd e2e /s /q
+```  
