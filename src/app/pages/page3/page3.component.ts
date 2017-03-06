@@ -5,10 +5,13 @@ import { Component } from '@angular/core';
   moduleId: module.id,
   selector: 'page3',
   templateUrl: `page3.component.html`,
-  inputs:['childValue']
+  inputs:['childValue', 'startDateValue']
 })
 
 export class Page3Component  {
+  
+
+  startDateValue : string;
   childValue:string;
 
   selectedPost(selectedPost : any){

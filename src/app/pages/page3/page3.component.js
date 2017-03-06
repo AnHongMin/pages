@@ -20,7 +20,7 @@ var Page3Component = (function () {
             moduleId: module.id,
             selector: 'page3',
             templateUrl: "page3.component.html",
-            inputs: ['childValue']
+            inputs: ['childValue', 'startDateValue']
         }), 
         __metadata('design:paramtypes', [])
     ], Page3Component);

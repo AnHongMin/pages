@@ -13,16 +13,31 @@ var core_2 = require('@angular/core');
 var jQueryComponent = (function () {
     function jQueryComponent(_elRef) {
         this._elRef = _elRef;
+        this.startDateChanged = new core_1.EventEmitter();
     }
     jQueryComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        jQuery('#start_date').datepicker({
+            autoclose: true,
+            todayHighlight: true,
+            endDate: new Date(),
+            format: 'dd/mm/yyyy'
+        }).change(function () {
+            _this.startDateValue = jQuery('#start_date').val();
+            _this.startDateChanged.emit(_this.startDateValue);
+        });
         jQuery(this._elRef.nativeElement).find('button').on('click', function () {
             alert('It works');
         });
     };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], jQueryComponent.prototype, "startDateChanged", void 0);
     jQueryComponent = __decorate([
         core_1.Component({
             selector: 'my-jquery',
-            template: "\n        <button>Click me</button>\n    "
+            template: "\n        <div>\n        <button>Click me</button>\n        <div class=\"form-group\">\n            <label>Date of birth</label>\n            <input \n                id=\"start_date\" \n                name=\"start_date\"\n                type=\"text\" \n                class=\"form-control\" \n                placeholder=\"dd/MM/yyyy\"\n                readonly=\"readonly\"\n                style=\"cursor: pointer;background: #fff;border-bottom: 2px solid #d8d8d8;\"\n            >\n            <p class=\"message-input error-input\">\n            {{!startDateValue?'Required':''}}\n            </p>\n        </div>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [core_2.ElementRef])
     ], jQueryComponent);
