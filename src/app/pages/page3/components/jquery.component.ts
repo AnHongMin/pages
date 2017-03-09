@@ -3,6 +3,7 @@ import { ElementRef } from '@angular/core';
 import { OnInit } from '@angular/core';
 declare var jQuery:any;
 
+//http://jqueryui.com/datepicker/#date-formats
 @Component({
     selector:'my-jquery',
     template: `
@@ -15,7 +16,7 @@ declare var jQuery:any;
                 name="start_date"
                 type="text" 
                 class="form-control" 
-                placeholder="dd/MM/yyyy"
+                placeholder="yyyy-mm-dd"
                 readonly="readonly"
                 style="cursor: pointer;background: #fff;border-bottom: 2px solid #d8d8d8;"
             >
@@ -40,14 +41,14 @@ export class jQueryComponent{
             autoclose: true,
             todayHighlight: true,
             endDate:new Date(),
-            format: 'dd/mm/yyyy'
+            dateFormat: 'yy-mm-dd'
         }).change(()=>{
             this.startDateValue=jQuery('#start_date').val();
             this.startDateChanged.emit(this.startDateValue);
         });
 
         jQuery(this._elRef.nativeElement).find('button').on('click',function(){
-            alert('It works');
+            location.href='http://localhost:8080/csContactLog.do?method=getList'+'&date='+jQuery('#start_date').val().replace(/[^0-9]/g, "");
         });
     }
 }

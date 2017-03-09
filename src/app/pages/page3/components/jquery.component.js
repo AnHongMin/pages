@@ -10,6 +10,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var core_2 = require('@angular/core');
+//http://jqueryui.com/datepicker/#date-formats
 var jQueryComponent = (function () {
     function jQueryComponent(_elRef) {
         this._elRef = _elRef;
@@ -21,13 +22,13 @@ var jQueryComponent = (function () {
             autoclose: true,
             todayHighlight: true,
             endDate: new Date(),
-            format: 'dd/mm/yyyy'
+            dateFormat: 'yy-mm-dd'
         }).change(function () {
             _this.startDateValue = jQuery('#start_date').val();
             _this.startDateChanged.emit(_this.startDateValue);
         });
         jQuery(this._elRef.nativeElement).find('button').on('click', function () {
-            alert('It works');
+            location.href = 'http://localhost:8080/csContactLog.do?method=getList' + '&date=' + jQuery('#start_date').val().replace(/[^0-9]/g, "");
         });
     };
     __decorate([
@@ -37,7 +38,7 @@ var jQueryComponent = (function () {
     jQueryComponent = __decorate([
         core_1.Component({
             selector: 'my-jquery',
-            template: "\n        <div>\n        <button>Click me</button>\n        <div class=\"form-group\">\n            <label>Date of birth</label>\n            <input \n                id=\"start_date\" \n                name=\"start_date\"\n                type=\"text\" \n                class=\"form-control\" \n                placeholder=\"dd/MM/yyyy\"\n                readonly=\"readonly\"\n                style=\"cursor: pointer;background: #fff;border-bottom: 2px solid #d8d8d8;\"\n            >\n            <p class=\"message-input error-input\">\n            {{!startDateValue?'Required':''}}\n            </p>\n        </div>\n        </div>\n    "
+            template: "\n        <div>\n        <button>Click me</button>\n        <div class=\"form-group\">\n            <label>Date of birth</label>\n            <input \n                id=\"start_date\" \n                name=\"start_date\"\n                type=\"text\" \n                class=\"form-control\" \n                placeholder=\"yyyy-mm-dd\"\n                readonly=\"readonly\"\n                style=\"cursor: pointer;background: #fff;border-bottom: 2px solid #d8d8d8;\"\n            >\n            <p class=\"message-input error-input\">\n            {{!startDateValue?'Required':''}}\n            </p>\n        </div>\n        </div>\n    "
         }), 
         __metadata('design:paramtypes', [core_2.ElementRef])
     ], jQueryComponent);
